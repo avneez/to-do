@@ -1,6 +1,12 @@
-import React from 'react'
+import { useState } from 'react'
+
+
 
 const AddTask = () => {
+    const [text, setText] =useState('')
+    const [time, setTime] =useState('')
+
+
     return (
         <form className='add-form'>
             <div className='form-data form-data-check'>
@@ -11,7 +17,7 @@ const AddTask = () => {
                 <label>Time</label>
                 <input type='text' plaeholder='Add Time' />
             </div>
-            <input type='submit' value='Save Task' />
+            <input type='submit' value='Save Task' className='btn btn-block'/>
         </form>
     )
 }
