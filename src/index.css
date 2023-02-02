@@ -75,15 +75,15 @@ body {
   margin-bottom: 40px;
 }
 
-.form-control {
+.form-data {
   margin: 20px 0;
 }
 
-.form-control label {
+.form-data label {
   display: block;
 }
 
-.form-control input {
+.form-data input {
   width: 100%;
   height: 40px;
   margin: 5px;
@@ -91,17 +91,17 @@ body {
   font-size: 17px;
 }
 
-.form-control-check {
+.form-data-check {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.form-control-check label {
+.form-data-check label {
   flex: 1;
 }
 
-.form-control-check input {
+.form-data-check input {
   flex: 2;
   height: 20px;
 }
