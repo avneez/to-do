@@ -1,7 +1,6 @@
 import { FaTimes, FaBolt } from 'react-icons/fa'
-// import EditTask from './EditTask'
 
-const Task = ({ task, onDelete, setIsEditing, setCurrentTask }) => {
+const Task = ({ task, onDelete, setIsEditing, setCurrentTask, onAdd }) => {
   return (
     <div className="task">
       <h3 >
@@ -10,6 +9,7 @@ const Task = ({ task, onDelete, setIsEditing, setCurrentTask }) => {
           <FaBolt onClick={() =>{
             setIsEditing(true)
             setCurrentTask(task)
+            
           }
             } />
           <FaTimes onClick={() => onDelete(task.id)} />

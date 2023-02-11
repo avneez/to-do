@@ -1,6 +1,4 @@
 import { useState } from 'react'
-import EditTask from './EditTask'
-
 
 
 const AddTask = ({ onAdd }) => {
@@ -12,7 +10,7 @@ const AddTask = ({ onAdd }) => {
 
     const onSubmit = (e) => {
         e.preventDefault()
-        console.log(userData)
+        // console.log(userData)
 
         if (!userData.text) {
             alert('Please add a Task')
@@ -40,8 +38,8 @@ const AddTask = ({ onAdd }) => {
                     <input type='text' placeholder='🖊️ Add Task' value={userData.text} onChange={setUserText} />
                 </div>
                 <div className='form-data form-data-check'>
-                    <label>Time</label>
-                    <input type='text' placeholder='Add Time' value={userData.time} onChange={setUserTime} />
+                    <label>Desc / Time</label>
+                    <input type='text' placeholder='Add Desc / Time' value={userData.time} onChange={setUserTime} />
                 </div>
                 <input type='submit' value='Save Task' className='btn btn-block' />
             </form>

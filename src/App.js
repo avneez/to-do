@@ -1,30 +1,30 @@
 import React from 'react';
 import { useState, useEffect } from 'react'
 import Header from './components/Header';
+import Footer from './components/Footer';
 import Tasks from './components/Tasks';
 import AddTask from './components/AddTask';
 import EditTask from './components/EditTask';
-// import Todo1page from './Todo1page';
 
 
 
 function App() {
-  const defaultTasks = [{
-    id: 1,
-    text: 'Exercise',
-    time: '9 AM'
-  },
-  {
-    id: 2,
-    text: 'Assignment',
-    time: '12 PM'
-  },
-  {
-    id: 3,
-    text: 'Meet XYZ',
-    time: '8 PM'
-  }
-  ];
+  // const defaultTasks = [{
+  //   id: 1,
+  //   text: 'Exercise',
+  //   time: '9 AM'
+  // },
+  // {
+  //   id: 2,
+  //   text: 'Assignment',
+  //   time: '12 PM'
+  // },
+  // {
+  //   id: 3,
+  //   text: 'Meet XYZ',
+  //   time: '8 PM'
+  // }
+  // ];
 
   const [showAddTask, setShowAddTask] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
@@ -38,7 +38,7 @@ function App() {
     if (savedTasks) {
       return JSON.parse(savedTasks)
     } else {
-      return defaultTasks;
+      return [];
     }
   });
 
@@ -62,30 +62,29 @@ function App() {
 
   function updateTask(id, updatedTask) {
     const updatedItem = tasks.map((task) => {
-        return task.id === id ? updatedTask : task;
+      return task.id === id ? updatedTask : task;
     })
 
     setIsEditing(false);
     setTasks(updatedItem)
-}
+  }
 
-// console.log(isEditing)
+  // console.log(isEditing)
   return (
     <div className="container">
-      <Header onAdd={() => setShowAddTask(!showAddTask)} />
+      <Header onAdd={() => setShowAddTask(!showAddTask)} showAddValue={showAddTask} />
 
-      {showAddTask && <AddTask onAdd={addTask}/>}
+      {/* {showAddTask && <AddTask onAdd={addTask}/>} */}
 
-      {isEditing && (<EditTask setIsEditing={setIsEditing} updateTask={updateTask} currentTask={currentTask}/>)}
+      {isEditing ? (isEditing && <EditTask setIsEditing={setIsEditing} updateTask={updateTask} currentTask={currentTask} />) : (showAddTask && <AddTask onAdd={addTask} />)}
 
 
       {tasks.length > 0 ? (
-      <Tasks tasks={tasks} onDelete={deleteTask} setIsEditing={setIsEditing} setCurrentTask={setCurrentTask}/>
+        <Tasks tasks={tasks} onDelete={deleteTask} setIsEditing={setIsEditing} setCurrentTask={setCurrentTask} />
       )
-       : ('No Any Tasks')}
+        : ('No Any Tasks To Show')}
 
-
-
+    <Footer/>
     </div>
   );
 
