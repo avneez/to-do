@@ -18,5 +18,5 @@ jobs:
       - name: Use the Upload Artifact GitHub Action
         uses: actions/upload-artifact@v4
         with:
-          path: dist
+          path: build
 
