@@ -15,3 +15,6 @@ jobs:
           node-version: 20
       - run: npm install
       - run: npm run build
+      - name: Use the Upload Artifact GitHub Action
+        uses: actions/upload-artifact@v2
+
